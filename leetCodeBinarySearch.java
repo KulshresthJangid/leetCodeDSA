@@ -56,4 +56,25 @@ public class leetCodeBinarySearch {
         }
         return -1;
     }
+
+    // 278. First Bad Version
+    public boolean isBadVersion(int i) {
+        return true;
+    }
+    public int firstBadVersion(int n) {
+        return firstBadVersion(0, n);
+    }
+    public int firstBadVersion(int l, int r) {
+        if(l==r) {
+            return l;
+        }
+
+        int mid = l+(r-l)/2;
+
+        if(isBadVersion(mid)) {
+            return firstBadVersion(l, mid);
+        } else {
+            return firstBadVersion(mid+1, r);
+        }
+    }
 }
